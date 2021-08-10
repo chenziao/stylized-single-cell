@@ -1,0 +1,87 @@
+{
+  "target_simulator": "NEURON",
+  "run": {
+    "tstart": 0.0,
+    "tstop": 15.0,
+    "dt": 0.025,
+    "dL": 20.0,
+    "spike_threshold": -15.0,
+    "nsteps_block": 5000
+  },
+  "conditions": {
+    "celsius": 34.0,
+    "v_init": -90.0
+  },
+  "inputs": {
+    "current_clamp": {
+      "input_type": "current_clamp",
+      "module": "IClamp",
+      "node_set": "all",
+      "gids": "all",
+      "amp": 5.0,
+      "delay": 4.9,
+      "duration": 0.1
+    }
+  },
+  "output": {
+    "log_file": "D:\\BMTKtemp\\stylized single cell\\sim_details\\output\\log.txt",
+    "output_dir": "D:\\BMTKtemp\\stylized single cell\\sim_details\\output",
+    "spikes_file": "D:\\BMTKtemp\\stylized single cell\\sim_details\\output\\spikes.h5"
+  },
+  "reports": {
+    "v_report": {
+      "variable_name": "v",
+      "cells": "all",
+      "module": "membrane_report",
+      "sections": "soma"
+    },
+    "imem_report": {
+      "variable_name": "i_membrane_",
+      "cells": "all",
+      "module": "membrane_report",
+      "file_name": "imem.h5",
+      "sections": "all"
+    },
+    "ecp": {
+      "cells": [
+        0
+      ],
+      "variable_name": "v",
+      "module": "extracellular",
+      "electrode_positions": "D:\\BMTKtemp\\stylized single cell\\sim_details\\components\\recXelectrodes\\linear_electrode.csv",
+      "file_name": "ecp.h5",
+      "electrode_channels": "all"
+    }
+  },
+  "node_sets_file": "D:\\BMTKtemp\\stylized single cell\\sim_details\\node_sets.json",
+  "network": "D:\\BMTKtemp\\stylized single cell\\sim_details\\circuit_config.json",
+  "config_path": "D:\\BMTKtemp\\stylized single cell\\sim_details\\simulation_config.json",
+  "config_dir": "D:\\BMTKtemp\\stylized single cell\\sim_details",
+  "components": {
+    "biophysical_neuron_models_dir": "D:\\BMTKtemp\\stylized single cell\\sim_details\\components\\biophysical_neuron_models",
+    "mechanisms_dir": "D:\\BMTKtemp\\stylized single cell\\sim_details\\components\\mechanisms",
+    "morphologies_dir": "D:\\BMTKtemp\\stylized single cell\\sim_details\\components\\morphologies",
+    "point_neuron_models_dir": "D:\\BMTKtemp\\stylized single cell\\sim_details\\components\\point_neuron_models",
+    "synaptic_models_dir": "D:\\BMTKtemp\\stylized single cell\\sim_details\\components\\synaptic_models",
+    "templates_dir": "D:\\BMTKtemp\\stylized single cell\\sim_details\\components\\templates",
+    "__pycache___dir": "D:\\BMTKtemp\\stylized single cell\\sim_details\\components\\__pycache__"
+  },
+  "networks": {
+    "nodes": [
+      {
+        "nodes_file": "D:\\BMTKtemp\\stylized single cell\\network\\mcortex_nodes.h5",
+        "node_types_file": "D:\\BMTKtemp\\stylized single cell\\network\\mcortex_node_types.csv"
+      }
+    ],
+    "edges": [],
+    "gap_juncs": []
+  },
+  "node_sets": {
+    "biophysical_nodes": {
+      "model_type": "biophysical"
+    },
+    "point_nodes": {
+      "model_type": "point_process"
+    }
+  }
+}
